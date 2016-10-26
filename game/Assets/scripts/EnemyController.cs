@@ -3,7 +3,6 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 
-	private Rigidbody2D rb2d;
 	public Transform target;
 	public float speed;
 	private float minDistance = 1f;
@@ -11,8 +10,6 @@ public class EnemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rb2d = GetComponent<Rigidbody2D> ();
-		//target.GetComponent<PlayerController> ();
 
 	}
 	
@@ -20,13 +17,13 @@ public class EnemyController : MonoBehaviour {
 	void Update ()
 	{
 		range = Vector2.Distance(transform.position, target.position);
-		speed = target.GetComponent<PlayerController> ().speed * 2;
+		speed = target.GetComponent<PlayerController> ().speed;
 
 		if (range > minDistance)
 		{
 			//Debug.Log(range);
 
-			transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+			transform.position = Vector2.MoveTowards(transform.position, target.position, speed * 2 * Time.deltaTime);
 		}
 	}
 
@@ -35,7 +32,7 @@ public class EnemyController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) {
 
 			Debug.Log ("The killer got the player!");
-
+			//other.gameObject.SetActive (false);
 
 		}
 	}
