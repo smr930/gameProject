@@ -5,9 +5,12 @@ public class PlayerController : MonoBehaviour {
 	
 	private Rigidbody2D rb2d;
 	public float speed;
+	private AudioSource audio;
+
 
 	void Awake() {
 		//LoadPlayerPos (0, -1f, 0);
+		audio = GetComponent<AudioSource>();
 	}
 
     // Use this for initialization
@@ -25,7 +28,16 @@ public class PlayerController : MonoBehaviour {
 		Vector2 movement = new Vector2 (moveHorizontal * speed, moveVertical * speed);
 		MovePlayer (movement);
 
-
+		//make footsteps sound when player moves
+		if (Input.GetButtonDown ("Horizontal") || Input.GetButtonDown ("Vertical")) {
+			
+			audio.Play ();
+		} 
+		// stop footsteps soundswhen player stops moving
+		else if (Input.GetButtonUp ("Vertical")) {
+			
+			audio.Stop ();
+		}
     }
 
 	void MovePlayer(Vector2 direction) {	
