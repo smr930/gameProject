@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	public float speed;
 	private AudioSource audio;
+	private bool isFacingRight;
+	private Animator animator;
 
 
 	void Awake() {
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
+		animator = GetComponent<Animator> ();
+		isFacingRight = true;
 		speed = 3.0f;
 		//LoadPlayerPos (0, 2, 0);
 
@@ -27,7 +31,8 @@ public class PlayerController : MonoBehaviour {
 		float moveVertical = Input.GetAxis ("Vertical");
 		Vector2 movement = new Vector2 (moveHorizontal * speed, moveVertical * speed);
 		MovePlayer (movement);
-
+		if ((moveHorizontal < 0 && isFacingRight) || (moveHorizontal > 0 && !isFacingRight))
+			Flip ();
 		//make footsteps sound when player moves
 		if (Input.GetButtonDown ("Horizontal") || Input.GetButtonDown ("Vertical")) {
 			
@@ -51,18 +56,19 @@ public class PlayerController : MonoBehaviour {
 		transform.position = pos;
 	}
 
-	/*
+
 	// Destroy the player if the enemy collides with it
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.gameObject.CompareTag ("Enemy")) {
-			other.gameObject.SetActive (false);
-			Debug.Log ("Player collided with the enemy");
-			rb2d.gameObject.SetActive (false);
+			animator.SetBool("hit", true);
+
+			//other.gameObject.SetActive (false);
+			//Debug.Log ("Player collided with the enemy");
+			//rb2d.gameObject.SetActive (false);
 
 		}
 
 	}
-	*/
 
 	void OnDestroy() {
 		//SavePlayerPos ();
@@ -85,4 +91,10 @@ public class PlayerController : MonoBehaviour {
 		transform.position = playerPos;
 	}
 
+	public void Flip() {
+		Vector3 playerScale = transform.localScale;
+		playerScale.x = playerScale.x * -1;
+		transform.localScale = playerScale;
+		isFacingRight = !isFacingRight;
+	}
 }
