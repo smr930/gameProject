@@ -6,38 +6,38 @@ public class Questions : MonoBehaviour {
 	// Create a 2D string array for questions and answers
 	public static string[,] qa = new string[,] {
 		{
-			"What is the capital of United States?",
-			"Florida",
-			"Texas",
-			"Washington D.C",
-			"Boston",
+			"What's the most common cancer?",
+			"Lung Cancer",
+			"Bladder Cancer",
+			"Skin Cancer",
+			"Breast Cancer",
 			"3",
 		},
 
 		{
-			"What are the colors of the United States flag?",
-			"Gray, Red",
-			"Green, black, orange",
-			"Blue, white",
-			"Red, white, blue",
+			"In the 1990's, about how many women has contracted breast cancer??",
+			"1,100,000",
+			"2,600,000",
+			"3,500,000",
+			"2,000,000",
 			"4",
 		},
 
 		{
-			"In what year the U.S Constitution was written?",
-			"1790",
-			"1776",
-			"1805",
-			"1877",
+			"Which Cancer is most deadly?",
+			"Kidney Cancer",
+			"Lung Cancer",
+			"Breast Cancer",
+			"Colon Cancer",
 			"2",
 		},
 
 		{
-			"Who was the first U.S President?",
-			"Thomas Jefferson",
-			"Ronald Reagan",
-			"George Washington",
-			"Abraham Lincoln",
+			"How much money is spent on Cancer??",
+			"20 billion",
+			"45 billion",
+			"100 billion",
+			"75 billion",
 			"3"
 		},
 
