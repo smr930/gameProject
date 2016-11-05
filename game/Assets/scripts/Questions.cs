@@ -15,7 +15,11 @@ public class Questions : MonoBehaviour {
 		},
 
 		{
+<<<<<<< HEAD
 			"In the 1990's, about how many women has contracted breast cancer??",
+=======
+			"In the 1990's, about how many women has \ncontracted breast cancer??",
+>>>>>>> Textured-Level01,-minor-tweaks-to-code
 			"1,100,000",
 			"2,600,000",
 			"3,500,000",

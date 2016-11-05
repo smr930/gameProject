@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	public Transform target;
 	public float speed;
-	private float minDistance = 1f;
+	private float minDistance = .5f; // default value is 1f
 	private float range;
 	private AudioSource caughtThePlayer;
 	private bool isFacingRight;
@@ -18,7 +18,10 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
+<<<<<<< HEAD
 		//target.GetComponent<PlayerController> ();
+=======
+>>>>>>> Textured-Level01,-minor-tweaks-to-code
 		animator = GetComponent<Animator> ();
 		isFacingRight = false;
 
@@ -27,6 +30,10 @@ public class EnemyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if ((target.position.x - transform.position.x < 0 && isFacingRight) || (target.position.x - transform.position.x > 0 && !isFacingRight))
+			Flip ();
+
+		// Chase the player algorithm
 		range = Vector2.Distance(transform.position, target.position);
 		speed = target.GetComponent<PlayerController> ().speed;
 
@@ -36,8 +43,12 @@ public class EnemyController : MonoBehaviour {
 
 			transform.position = Vector2.MoveTowards(transform.position, target.position, speed * 2 * Time.deltaTime);
 		}
+<<<<<<< HEAD
 		if ((target.position.x - transform.position.x < 0 && isFacingRight) || (target.position.x - transform.position.x > 0 && !isFacingRight))
 			Flip ();
+=======
+			
+>>>>>>> Textured-Level01,-minor-tweaks-to-code
 	
 	}
 
@@ -49,6 +60,8 @@ public class EnemyController : MonoBehaviour {
 			caughtThePlayer.Play ();
 
 			Debug.Log ("The killer got the player!");
+
+			// Code to handle killing the player
 			//other.gameObject.SetActive (false);
 
 		}
