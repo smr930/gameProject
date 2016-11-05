@@ -23,13 +23,13 @@ public class NextButton : MonoBehaviour {
 		if (QuestionController.counter <= Questions.qa.GetLength (0)) {
 			QuestionController.counter++;
 
-			// When it's the 4th question, change the next button text
-			if (QuestionController.counter % 3 == 0) {
+			// When it's the 3rd question, change the next button text
+			if (QuestionController.counter % 2 == 0) {
 				GetComponent<TextMesh> ().text = "Finish";
 			}
 
 			// Once the player hits 'Finish' button, change the scene
-			if (QuestionController.counter % 4 == 0) {
+			if (QuestionController.counter % 3 == 0) {
 
 				//QuestionController.counter = 0;
 				Debug.Log ("Changing scene to level01");
