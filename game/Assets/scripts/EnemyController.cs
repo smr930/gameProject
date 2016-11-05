@@ -18,10 +18,6 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
-<<<<<<< HEAD
-		//target.GetComponent<PlayerController> ();
-=======
->>>>>>> Textured-Level01,-minor-tweaks-to-code
 		animator = GetComponent<Animator> ();
 		isFacingRight = false;
 
@@ -43,13 +39,9 @@ public class EnemyController : MonoBehaviour {
 
 			transform.position = Vector2.MoveTowards(transform.position, target.position, speed * 2 * Time.deltaTime);
 		}
-<<<<<<< HEAD
-		if ((target.position.x - transform.position.x < 0 && isFacingRight) || (target.position.x - transform.position.x > 0 && !isFacingRight))
+		if ((target.position.x - transform.position.x < 0 && isFacingRight) || (target.position.x - transform.position.x > 0 && !isFacingRight)) {
 			Flip ();
-=======
-			
->>>>>>> Textured-Level01,-minor-tweaks-to-code
-	
+		}
 	}
 
 	// When the player collides with the enemy, kill the player
