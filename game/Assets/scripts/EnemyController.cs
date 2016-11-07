@@ -39,8 +39,9 @@ public class EnemyController : MonoBehaviour {
 
 			transform.position = Vector2.MoveTowards(transform.position, target.position, speed * 2 * Time.deltaTime);
 		}
-			
-	
+		if ((target.position.x - transform.position.x < 0 && isFacingRight) || (target.position.x - transform.position.x > 0 && !isFacingRight)) {
+			Flip ();
+		}
 	}
 
 	// When the player collides with the enemy, kill the player
