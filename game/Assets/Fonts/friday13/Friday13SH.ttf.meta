@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 59541100d9909462ea64e725bac4644e
+timeCreated: 1478804037
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Friday13SH
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 29b01fa090d25442183df4583a09941a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

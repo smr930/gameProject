@@ -19,12 +19,12 @@ public class HighlightText : MonoBehaviour {
 	void OnMouseOver() {
 
 		GetComponent<TextMesh> ().color = mouseOverColor;
-		GetComponent<TextMesh> ().fontSize = 46;
+		GetComponent<TextMesh> ().fontSize = 36;
 	}
 
 	void OnMouseExit() {
 
 		GetComponent<TextMesh> ().color = mouseExitColor;
-		GetComponent<TextMesh> ().fontSize = 36;
+		GetComponent<TextMesh> ().fontSize = 30;
 	}
 }
